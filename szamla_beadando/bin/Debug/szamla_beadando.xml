@@ -4,6 +4,11 @@
         <name>szamla_beadando</name>
     </assembly>
     <members>
+        <member name="T:szamla_beadando.Szamla">
+            <summary>
+            A Számla osztályban szerepel egy azonosító (id), a tulajdonos neve, és az egyenleg összege
+            </summary>
+        </member>
         <member name="T:szamla_beadando.App">
             <summary>
             Interaction logic for App.xaml
@@ -27,11 +32,87 @@
             MainWindow
             </summary>
         </member>
+        <member name="F:szamla_beadando.MainWindow.szamlaLista">
+            <summary>
+            A számlákat tartalmazó lista létrehozása
+            </summary>
+        </member>
         <member name="M:szamla_beadando.MainWindow.#ctor">
             <summary>
-            Interaction logic for MainWindow.xaml
+            A main window.xaml-ben az indításkor betöltött adatok a szövegmezőben a listában első és második helyen lévő Tulaj és Egyenleg propertyk
             </summary>
             
+        </member>
+        <member name="M:szamla_beadando.MainWindow.Utalas1(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            A jobb oldali Utalás gombra kattintva ez fut le    
+            Az Utalas1 az első számlából levonja a beviteli mezőjébe bevitt értéket, majd hozzáadja a másodikhoz
+            Le van kezelve, hogy a beviteli mező hibát dobjon, ha nem pozitív a szám, ha nagyobb mint az egyenleg, vagy ha betűsort kap
+            Ezt az szám integerrel ellenőrzi
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:szamla_beadando.MainWindow.Utalas2(System.Object,System.Windows.RoutedEventArgs)">
+             <summary>
+             A bal oldali Utalás gombra kattintva ez fut le 
+            Az Utalas2 a második számlából levonja a beviteli mezőjébe bevitt értéket, majd hozzáadja az elsőhoz
+             Le van kezelve, hogy a beviteli mező hibát dobjon, ha nem pozitív a szám, ha nagyobb mint az egyenleg, ha üres a mező, vagy ha betűsort kap
+             Ezt a szám integerrel végzi
+             Ezután kinullázza a beviteli mezőt
+             </summary>
+             <param name="sender"></param>
+             <param name="e"></param>
+        </member>
+        <member name="M:szamla_beadando.MainWindow.Feltolt1(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            A jobb oldali Feltöltés gombra kattintva ez fut le 
+            A Feltolt1 metódus feltölti az első számlát a beviteli mezőjében megadott összeggel, ez is le van kezelve negatív számokra, betűkre, üres mezőre és lehetséges negatív különbségekre.
+            Ezután kinullázza a beviteli mezőt
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:szamla_beadando.MainWindow.Feltolt2(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            A bal oldali Utalás gombra kattintva ez fut le 
+            A Feltolt2 metódus feltölti a második számlát a beviteli mezőjében megadott összeggel, ez is le van kezelve negatív számokra, betűkre, üres mezőre és lehetséges negatív különbségekre.
+            Ezután kinullázza a beviteli mezőt
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:szamla_beadando.MainWindow.Kivet2(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            A bal oldali Kivét gombra kattintva ez fut le 
+            A Kivet2 kiveszi a második számlából a beviteli mezőjében megadott öszeget, ez is le van kezelve negatív számokra, betűkre, üres mezőre és lehetséges negatív különbségekre.
+            kinullázza a beviteli mezőt
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:szamla_beadando.MainWindow.Kivet1(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            A jobb oldali Kivét gombra kattintva ez fut le 
+            A Kivet1 kiveszi az első számlából a beviteli mezőjében megadott öszeget, ez is le van kezelve negatív számokra, betűkre, üres mezőre és lehetséges negatív különbségekre.
+            kinullázza a beviteli mezőt
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:szamla_beadando.MainWindow.TulajValtas1(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            A TulajValtas1 kicseréli a Tulaj1 szövegmezőben lévő nevet a beviteli mezőjébe beírt névre, ha a Tulajdonos név váltásra kattintanak
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:szamla_beadando.MainWindow.TulajValtas2(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            A TulajValtas2 kicseréli a Tulaj2 szövegmezőben lévő nevet a beviteli mezőjébe beírt névre, ha a Tulajdonos név váltásra kattintanak
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:szamla_beadando.MainWindow.InitializeComponent">
             <summary>

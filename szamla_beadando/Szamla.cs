@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace szamla_beadando
 {
+    /// <summary>
+    /// A Számla osztályban szerepel egy azonosító (id), a tulajdonos neve, és az egyenleg összege
+    /// </summary>
     class Szamla
     {
         public int Id { get; set; } = 0;
